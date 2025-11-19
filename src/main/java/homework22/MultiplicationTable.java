@@ -4,15 +4,11 @@ import java.util.Scanner;
 
 public class MultiplicationTable {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Введите первое число: ");
-        int start = scanner.nextInt();
-        System.out.print("Введите последнее число: ");
-        int end = scanner.nextInt();
-        System.out.print("Введите шаг: ");
-        int step = scanner.nextInt();
+        int start = 0, end = 0, step = 0;
+        start = validateEnter("Введите первое число: ");
+        end = validateEnter("Введите последнее число: ");
+        step = validateEnter("Введите шаг: ");
         int arrLenght = lenghtCalc(start, end, step) + 1;
-        System.out.println(arrLenght);
         int[][] multiTable = new int[arrLenght][arrLenght];
         int startCopy1 = start;
         for (int i = 1; i < multiTable.length; i++) {
@@ -22,7 +18,6 @@ public class MultiplicationTable {
                 multiTable[0][i] = end;
             }
         }
-        System.out.println();
         int startCopy2 = start;
         for (int i = 1; i < multiTable.length; i++) {
             multiTable[i][0] = startCopy2;
@@ -58,5 +53,22 @@ public class MultiplicationTable {
             }
         }
         return counter;
+    }
+    public static int validateEnter(String msg) {
+        int number = 0;
+        Scanner scanner = new Scanner(System.in);
+        boolean isInt = false;
+        while (!isInt) {
+            System.out.print(msg);
+            if (scanner.hasNextInt()) {
+                number = scanner.nextInt();
+                isInt = true;
+            }
+            else {
+                System.out.println("Неверный ввод");
+                scanner.next();
+            }
+        }
+        return number;
     }
 }
