@@ -6,33 +6,33 @@ public class MultiplicationTable {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Введите первое число: ");
-        int a1 = scanner.nextInt();
+        int start = scanner.nextInt();
         System.out.print("Введите последнее число: ");
-        int a2 = scanner.nextInt();
+        int end = scanner.nextInt();
         System.out.print("Введите шаг: ");
-        int k = scanner.nextInt();
+        int step = scanner.nextInt();
         int[][] multiTable = new int[6][6];
-        int b1 = a1;
+        int startCopy1 = start;
         for (int i = 1; i < 6; i++) {
-            multiTable[0][i] = b1;
-            b1 += k;
+            multiTable[0][i] = startCopy1;
+            startCopy1 += step;
             if (i == 5) {
-                multiTable[0][i] = a2;
+                multiTable[0][i] = end;
             }
         }
         System.out.println();
-        int b2 = a1;
+        int startCopy2 = start;
         for (int i = 1; i < 6; i++) {
-            multiTable[i][0] = b2;
-            b2 += k;
+            multiTable[i][0] = startCopy2;
+            startCopy2 += step;
             if (i == 5) {
-                multiTable[i][0] = a2;
+                multiTable[i][0] = end;
             }
         }
-        for (int i = 0; i < 5; i++) {
-            int c1 = multiTable[i+1][0];
-            for (int j = 0; j < 5; j++) {
-                multiTable[i+1][j+1] = multiTable[0][j+1]*c1;
+        for (int i = 1; i < 5; i++) {
+            int multiplier = multiTable[i][0];
+            for (int j = 1; j < 5; j++) {
+                multiTable[i][j] = multiTable[0][j]*multiplier;
             }
         }
         printTable(multiTable);
@@ -47,10 +47,5 @@ public class MultiplicationTable {
             }
             System.out.println();
         }
-    }
-
-    public static int getCellWidth(int number) {
-        String data = String.valueOf(number);
-        return data.length();
     }
 }
