@@ -19,7 +19,6 @@ public class MultiplicationTable {
             if (i == 5) {
                 multiTable[0][i] = a2;
             }
-//            System.out.print("\t" + multiTable[0][i]);
         }
         System.out.println();
         int b2 = a1;
@@ -29,7 +28,6 @@ public class MultiplicationTable {
             if (i == 5) {
                 multiTable[i][0] = a2;
             }
-//            System.out.println(multiTable[i][0]);
         }
         for (int i = 0; i < 5; i++) {
             int c1 = multiTable[i+1][0];
