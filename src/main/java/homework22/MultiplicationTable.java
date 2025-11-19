@@ -12,6 +12,7 @@ public class MultiplicationTable {
         System.out.print("Введите шаг: ");
         int step = scanner.nextInt();
         int[][] multiTable = new int[6][6];
+        System.out.println(multiTable.length);
         int startCopy1 = start;
         for (int i = 1; i < 6; i++) {
             multiTable[0][i] = startCopy1;
@@ -40,7 +41,6 @@ public class MultiplicationTable {
     }
 
     public static void printTable(int arr[][]) {
-        int width = getCellWidth(5*5);
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 6; j++) {
                 System.out.printf("%5d",arr[i][j] );
