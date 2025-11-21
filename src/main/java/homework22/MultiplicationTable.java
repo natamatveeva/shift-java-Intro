@@ -32,14 +32,15 @@ public class MultiplicationTable {
                 multiplicationTable[i][j] = multiplicationTable[0][j]*multiplier;
             }
         }
-        printTable(multiplicationTable);
+        printTable(multiplicationTable, start, end);
 
     }
 
-    public static void printTable(int[][] array) {
+    public static void printTable(int[][] array, int start, int end) {
+        int width = getCellWidth(start * end * 100);
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array.length; j++) {
-                System.out.printf("%5d",array[i][j] );
+                System.out.printf("%" + width + "d",array[i][j] );
             }
             System.out.println();
         }
@@ -70,5 +71,9 @@ public class MultiplicationTable {
             }
         }
         return number;
+    }
+    public static int getCellWidth(int number) {
+        String data = String.valueOf(number);
+        return data.length();
     }
 }
