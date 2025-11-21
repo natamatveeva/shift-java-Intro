@@ -9,34 +9,34 @@ public class MultiplicationTable {
         end = validateEnter("Введите последнее число: ");
         step = validateEnter("Введите шаг: ");
         int arrLenght = lenghtCalc(start, end, step) + 1;
-        int[][] multiTable = new int[arrLenght][arrLenght];
+        int[][] multiplicationTable = new int[arrLenght][arrLenght];
         int startCopy1 = start;
-        for (int i = 1; i < multiTable.length; i++) {
-            multiTable[0][i] = startCopy1;
+        for (int i = 1; i < multiplicationTable.length; i++) {
+            multiplicationTable[0][i] = startCopy1;
             startCopy1 += step;
-            if (i == (multiTable.length - 1)) {
-                multiTable[0][i] = end;
+            if (i == (multiplicationTable.length - 1)) {
+                multiplicationTable[0][i] = end;
             }
         }
         int startCopy2 = start;
-        for (int i = 1; i < multiTable.length; i++) {
-            multiTable[i][0] = startCopy2;
+        for (int i = 1; i < multiplicationTable.length; i++) {
+            multiplicationTable[i][0] = startCopy2;
             startCopy2 += step;
-            if (i == (multiTable.length - 1)) {
+            if (i == (multiplicationTable.length - 1)) {
                 multiTable[i][0] = end;
             }
         }
-        for (int i = 1; i < (multiTable.length); i++) {
-            int multiplier = multiTable[i][0];
-            for (int j = 1; j < (multiTable.length); j++) {
-                multiTable[i][j] = multiTable[0][j]*multiplier;
+        for (int i = 1; i < (multiplicationTable.length); i++) {
+            int multiplier = multiplicationTable[i][0];
+            for (int j = 1; j < (multiplicationTable.length); j++) {
+                multiplicationTable[i][j] = multiplicationTable[0][j]*multiplier;
             }
         }
         printTable(multiTable);
 
     }
 
-    public static void printTable(int arr[][]) {
+    public static void printTable(int[][] arr) {
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr.length; j++) {
                 System.out.printf("%5d",arr[i][j] );
