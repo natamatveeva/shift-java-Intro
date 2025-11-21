@@ -8,8 +8,8 @@ public class MultiplicationTable {
         start = validateEnter("Введите первое число: ");
         end = validateEnter("Введите последнее число: ");
         step = validateEnter("Введите шаг: ");
-        int arrLenght = getArraySize(start, end, step) + 1;
-        int[][] multiplicationTable = new int[arrLenght][arrLenght];
+        int arrayLenght = getArraySize(start, end, step) + 1;
+        int[][] multiplicationTable = new int[arrayenght][arrayLenght];
         int startCopy1 = start;
         for (int i = 1; i < multiplicationTable.length; i++) {
             multiplicationTable[0][i] = startCopy1;
@@ -37,8 +37,8 @@ public class MultiplicationTable {
     }
 
     public static void printTable(int[][] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr.length; j++) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array.length; j++) {
                 System.out.printf("%5d",arr[i][j] );
             }
             System.out.println();
