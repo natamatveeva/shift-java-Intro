@@ -8,7 +8,7 @@ public class MultiplicationTable {
         start = validateEnter("Введите первое число: ");
         end = validateEnter("Введите последнее число: ");
         step = validateEnter("Введите шаг: ");
-        int arrLenght = lenghtCalc(start, end, step) + 1;
+        int arrLenght = getArraySize(start, end, step) + 1;
         int[][] multiplicationTable = new int[arrLenght][arrLenght];
         int startCopy1 = start;
         for (int i = 1; i < multiplicationTable.length; i++) {
@@ -44,7 +44,7 @@ public class MultiplicationTable {
             System.out.println();
         }
     }
-    public static int lenghtCalc(int start, int end, int step) {
+    public static int getArraySize(int start, int end, int step) {
         int counter = 1;
         if (start <= end) {
             while (start < end) {
