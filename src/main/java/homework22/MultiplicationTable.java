@@ -9,37 +9,37 @@ public class MultiplicationTable {
         end = validateEnter("Введите последнее число: ");
         step = validateEnter("Введите шаг: ");
         int arrayLenght = getArraySize(start, end, step) + 1;
-        int[][] multiplicationTable = new int[arrayenght][arrayLenght];
-        int startCopy1 = start;
+        int[][] multiplicationTable = new int[arrayLenght][arrayLenght];
+        int multiplier = start;
         for (int i = 1; i < multiplicationTable.length; i++) {
-            multiplicationTable[0][i] = startCopy1;
-            startCopy1 += step;
+            multiplicationTable[0][i] = multiplier;
+            multiplier += step;
             if (i == (multiplicationTable.length - 1)) {
                 multiplicationTable[0][i] = end;
             }
         }
-        int startCopy2 = start;
+        multiplier = start;
         for (int i = 1; i < multiplicationTable.length; i++) {
-            multiplicationTable[i][0] = startCopy2;
-            startCopy2 += step;
+            multiplicationTable[i][0] = multiplier;
+            multiplier += step;
             if (i == (multiplicationTable.length - 1)) {
-                multiTable[i][0] = end;
+                multiplicationTable[i][0] = end;
             }
         }
         for (int i = 1; i < (multiplicationTable.length); i++) {
-            int multiplier = multiplicationTable[i][0];
+            multiplier = multiplicationTable[i][0];
             for (int j = 1; j < (multiplicationTable.length); j++) {
                 multiplicationTable[i][j] = multiplicationTable[0][j]*multiplier;
             }
         }
-        printTable(multiTable);
+        printTable(multiplicationTable);
 
     }
 
-    public static void printTable(int[][] arr) {
+    public static void printTable(int[][] array) {
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array.length; j++) {
-                System.out.printf("%5d",arr[i][j] );
+                System.out.printf("%5d",array[i][j] );
             }
             System.out.println();
         }
