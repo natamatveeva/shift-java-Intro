@@ -1,5 +1,8 @@
 package main.java.homework22;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class MultiplicationTable {
@@ -33,7 +36,32 @@ public class MultiplicationTable {
             }
         }
         printTable(multiplicationTable, start, end);
+        String fileName = "output.txt";
+        FileOutputStream fileOutputStream = null;
+        char[] characters;
 
+        try {
+            // Открыть файл
+            fileOutputStream = new FileOutputStream(fileName);
+
+            // Записать в файл
+            for (char character : characters) {
+                fileOutputStream.write(character);
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("Файл не найден");
+        } catch (IOException e) {
+            System.out.println("Ошибка при чтении файла");
+        } finally {
+            // Закрыть файл
+            try {
+                if (fileOutputStream != null) {
+                    fileOutputStream.close();
+                }
+            } catch (IOException e) {
+                System.out.println("Ошибка при закрытии файла");
+            }
+        }
     }
 
     public static void printTable(int[][] array, int start, int end) {
