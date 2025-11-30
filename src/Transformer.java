@@ -1,21 +1,13 @@
-public class Transformer {
+public abstract class Transformer {
     private String name;
 
-    Transformer(String name) {
+    protected Transformer(String name) {
         this.name = name;
     }
 
-    void run() { System.out.println(this.name + " is running"); }
+    public abstract void transformInto();
 
-    void fire() { System.out.println(this.name + " is shooting"); }
-
-    void charge() { System.out.println(this.name + " is charging"); }
-
-    void transformInto() {
-        System.out.println(getName() + " transforms into technic.");
-    }
-
-    void showProperties() {
+    public void showProperties() {
         System.out.println("My name is " + this.name + ".");
     }
 
