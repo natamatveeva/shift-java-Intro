@@ -27,16 +27,17 @@ public class Decepticon extends Transformer {
         this.transformTo = transformTo;
     }
 
-    public void transformInto() {
-        System.out.println(getName() + " transforms into " + this.transformTo + ".");
-    }
-
     public void setKindness(boolean kindness) {
         this.kindness = kindness;
     }
 
     public boolean getKindness() {
         return this.kindness;
+    }
+
+    @Override
+    public void transformInto() {
+        System.out.println(getName() + " transforms into " + this.transformTo + ".");
     }
 
     @Override

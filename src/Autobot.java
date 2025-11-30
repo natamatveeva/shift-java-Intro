@@ -25,16 +25,17 @@ public class Autobot extends Transformer {
         String teamName = TEAM_NAME;
     }
 
-    public void transformInto() {
-        System.out.println(getName() + " transforms into car.");
-    }
-
     public void setKindness(boolean kindness) {
         this.kindness = kindness;
     }
 
     public boolean getKindness() {
         return this.kindness;
+    }
+
+    @Override
+    public void transformInto() {
+        System.out.println(getName() + " transforms into car.");
     }
 
     @Override

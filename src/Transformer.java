@@ -11,6 +11,10 @@ public class Transformer {
 
     void charge() { System.out.println(this.name + " is charging"); }
 
+    void transformInto() {
+        System.out.println(getName() + " transforms into technic.");
+    }
+
     void showProperties() {
         System.out.println("My name is " + this.name + ".");
     }
