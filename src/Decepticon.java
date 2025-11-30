@@ -1,6 +1,6 @@
 public class Decepticon extends Transformer {
     private static String TEAM_NAME;
-    private static String EYE_COLOR;
+    private static final String EYE_COLOR;
     boolean kindness = false;
     String transformTo;
 
