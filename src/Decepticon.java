@@ -44,10 +44,7 @@ public class Decepticon extends Transformer {
         super.showProperties();
         System.out.println("I am " + TEAM_NAME + ".");
         System.out.println("My eyes are " + EYE_COLOR + ".");
-        if (kindness) {
-            System.out.println("I am kind.");
-        } else {
-            System.out.println("I am not kind.");
-        }
+        String kindnessMsg = (kindness) ? "I am kind." : "I am not kind.";
+        System.out.println(kindnessMsg);
     }
 }

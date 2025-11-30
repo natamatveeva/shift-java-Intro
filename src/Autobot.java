@@ -1,7 +1,7 @@
 public class Autobot extends Transformer {
 
     private static String TEAM_NAME;
-    private static String EYE_COLOR;
+    private static final String EYE_COLOR;
     boolean kindness = true;
 
     static {
@@ -42,11 +42,8 @@ public class Autobot extends Transformer {
         super.showProperties();
         System.out.println("I am " + TEAM_NAME + ".");
         System.out.println("My eyes are " + EYE_COLOR + ".");
-        if (kindness) {
-            System.out.println("I am kind.");
-        } else {
-            System.out.println("I am not kind.");
-        }
+        String kindnessMsg = (kindness) ? "I am kind." : "I am not kind.";
+        System.out.println(kindnessMsg);
     }
 
 }
