@@ -6,8 +6,10 @@ public class MainTransformer {
         arrayAutobots[1] = new Autobot("Ben");
         Decepticon[] arrayDecepticons;
         arrayDecepticons = new Decepticon[2];
-        arrayDecepticons[0] = new Decepticon("Jack","airplane");
-        arrayDecepticons[1] = new Decepticon("Mary","tank",true);
+        TransformShape shape1 = TransformShape.NOTEBOOK;
+        TransformShape shape2 = TransformShape.YACHT;
+        arrayDecepticons[0] = new Decepticon("Jack",shape1.name());
+        arrayDecepticons[1] = new Decepticon("Mary", shape2.name(),true);
 
         System.out.println("Autobots: ");
         for (int i = 0; i < 2; i++) {
