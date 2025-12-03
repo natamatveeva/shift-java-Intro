@@ -5,26 +5,55 @@ import java.util.Scanner;
 public class StringProcessing {
     public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
-        System.out.print("Введите строку больше одного символа: ");
-        String str1 = console.nextLine();
+        String strStart = validateEnter("Введите строку больше одного символа: ");
         System.out.print("Введите символ для замены: ");
-        String ch1 = console.nextLine();
-        String str2 = str1.replaceAll("\\s{2,}", " ");
-        if (str1.equals(str2)) {
+        String charReplace = console.nextLine();
+        String strEnd = strStart.replaceAll("\\s{2,}", " ");
+        if (strStart.equals(strEnd)) {
             System.out.println("В строке нет лишних пробелов.");
-            str2 = str1.replace(ch1, " ");
-            str2 = str2.replaceAll("\\s{2,}", " ");
-            System.out.println("Исходная строка: " + str1);
-            System.out.println("Новая строка: " + str2);
-            if (str1.equals(str2)) {
+            strEnd = strStart.replace(charReplace, " ");
+            strEnd = strEnd.replaceAll("\\s{2,}", " ");
+            System.out.println("Исходная строка: " + strStart);
+            System.out.println("Новая строка: " + strEnd);
+            if (strStart.equals(strEnd)) {
                 System.out.println("Исходная строка не изменилась");
             }
         } else {
             System.out.println("В строке были лишние пробелы, они удалены.");
-            str2 = str1.replace(ch1, " ");
-            str2 = str2.replaceAll("\\s{2,}", " ");
-            System.out.println("Исходная строка: " + str1);
-            System.out.println("Новая строка: " + str2);
+            strEnd = strStart.replace(charReplace, " ");
+            strEnd = strEnd.replaceAll("\\s{2,}", " ");
+            System.out.println("Исходная строка: " + strStart);
+            System.out.println("Новая строка: " + strEnd);
         }
+    }
+
+    public static String validateEnter(String msg) {
+        String text = "";
+        Scanner scanner = new Scanner(System.in);
+        boolean isStrOk = false;
+        while (!isStrOk) {
+            int counter = 0;
+            System.out.print(msg);
+            text = scanner.nextLine();
+            String[] wrongChar = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "0"};
+            if (text.length() > 1 && text != null) {
+//                isStrOk = true;
+                for (int i = 0; i < wrongChar.length; i++) {
+                    if (text.contains(wrongChar[i])) {
+                        System.out.println("Неверный ввод");
+                        counter += 1;
+                        continue;
+                    }
+                }
+                if (counter == 0) {
+                    isStrOk = true;
+                }
+
+            } else {
+                System.out.println("Неверный ввод");
+                continue;
+            }
+        }
+        return text;
     }
 }
