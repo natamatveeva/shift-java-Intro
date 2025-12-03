@@ -10,21 +10,22 @@ public class StringProcessing {
         String charReplace = console.nextLine();
         String strEnd = strStart.replaceAll("\\s{2,}", " ");
         if (strStart.equals(strEnd)) {
-            System.out.println("В строке нет лишних пробелов.");
-            strEnd = strStart.replace(charReplace, " ");
-            strEnd = strEnd.replaceAll("\\s{2,}", " ");
-            System.out.println("Исходная строка: " + strStart);
-            System.out.println("Новая строка: " + strEnd);
+            strTransform("В строке нет лишних пробелов.", strStart, strEnd, charReplace);
             if (strStart.equals(strEnd)) {
                 System.out.println("Исходная строка не изменилась");
             }
         } else {
-            System.out.println("В строке были лишние пробелы, они удалены.");
-            strEnd = strStart.replace(charReplace, " ");
-            strEnd = strEnd.replaceAll("\\s{2,}", " ");
-            System.out.println("Исходная строка: " + strStart);
-            System.out.println("Новая строка: " + strEnd);
+            strTransform("В строке были лишние пробелы, они удалены.", strStart, strEnd, charReplace);
         }
+    }
+
+    public static void strTransform(String msg, String strStart, String strEnd, String charReplace) {
+        System.out.println(msg);
+        strEnd = strStart.replace(charReplace, " ");
+        strEnd = strEnd.replaceAll("\\s{2,}", " ");
+        System.out.println("Исходная строка: " + strStart);
+        System.out.println("Новая строка: " + strEnd);
+
     }
 
     public static String validateEnter(String msg) {
