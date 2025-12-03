@@ -32,23 +32,21 @@ public class PrintToFileOfTable {
         for (int i = 1; i < (multiplicationTable.length); i++) {
             multiplier = multiplicationTable[i][0];
             for (int j = 1; j < (multiplicationTable.length); j++) {
-                multiplicationTable[i][j] = multiplicationTable[0][j]*multiplier;
+                multiplicationTable[i][j] = multiplicationTable[0][j] * multiplier;
             }
         }
         printTable(multiplicationTable, start, end);
 
-        try(FileWriter writer = new FileWriter("table.txt", false))
-        {
+        try (FileWriter writer = new FileWriter("table.txt", false)) {
             for (int i = 0; i < multiplicationTable.length; i++) {
                 for (int j = 0; j < multiplicationTable.length; j++) {
-                    String stringOfTable = multiplicationTable[i][j] + " ";
+                    String stringOfTable = String.format("%d\t",multiplicationTable[i][j]);
                     writer.write(stringOfTable);
                 }
                 writer.append('\n');
             }
             writer.flush();
-        }
-        catch(IOException ex){
+        } catch (IOException ex) {
 
             System.out.println(ex.getMessage());
         }
@@ -58,11 +56,12 @@ public class PrintToFileOfTable {
         int width = getCellWidth(start * end * 100);
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array.length; j++) {
-                System.out.printf("%" + width + "d",array[i][j] );
+                System.out.printf("%" + width + "d", array[i][j]);
             }
             System.out.println();
         }
     }
+
     public static int getArraySize(int start, int end, int step) {
         int counter = 1;
         if (start <= end) {
@@ -73,6 +72,7 @@ public class PrintToFileOfTable {
         }
         return counter;
     }
+
     public static int validateEnter(String msg) {
         int number = 0;
         Scanner scanner = new Scanner(System.in);
@@ -82,14 +82,14 @@ public class PrintToFileOfTable {
             if (scanner.hasNextInt()) {
                 number = scanner.nextInt();
                 isInt = true;
-            }
-            else {
+            } else {
                 System.out.println("Неверный ввод");
                 scanner.next();
             }
         }
         return number;
     }
+
     public static int getCellWidth(int number) {
         String data = String.valueOf(number);
         return data.length();
