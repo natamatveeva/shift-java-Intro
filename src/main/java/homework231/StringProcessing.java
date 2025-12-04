@@ -8,7 +8,7 @@ public class StringProcessing {
         String strStart = validateEnter("Введите строку больше одного символа: ");
         System.out.print("Введите символ для замены: ");
         String charReplace = console.nextLine();
-        String strEnd = strStart.replaceAll("\\s{2,}", " ");
+        String strEnd = strStart.replaceAll(" {2,}", " ");
         if (strStart.equals(strEnd)) {
             strTransform("В строке нет лишних пробелов.", strStart, strEnd, charReplace);
             if (strStart.equals(strEnd)) {
@@ -22,7 +22,7 @@ public class StringProcessing {
     public static void strTransform(String msg, String strStart, String strEnd, String charReplace) {
         System.out.println(msg);
         strEnd = strStart.replace(charReplace, " ");
-        strEnd = strEnd.replaceAll("\\s{2,}", " ");
+        strEnd = strEnd.replaceAll(" {2,}", " ");
         System.out.println("Исходная строка: " + strStart);
         System.out.println("Новая строка: " + strEnd);
 
