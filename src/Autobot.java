@@ -1,4 +1,4 @@
-public class Autobot extends Transformer {
+public class Autobot extends Transformer implements Action{
 
     private static String TEAM_NAME;
     private static final String EYE_COLOR;
