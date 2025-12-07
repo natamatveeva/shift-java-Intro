@@ -1,4 +1,4 @@
-public abstract class Transformer {
+public abstract class Transformer implements Action{
     private String name;
 
     protected Transformer(String name) {

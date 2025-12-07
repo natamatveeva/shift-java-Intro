@@ -1,36 +1,24 @@
+import java.util.ArrayList;
+
 public class MainTransformer {
     public static void main(String[] args) {
-        Autobot[] arrayAutobots;
-        arrayAutobots = new Autobot[2];
-        arrayAutobots[0] = new Autobot("Glory", false);
-        arrayAutobots[1] = new Autobot("Ben");
-        Decepticon[] arrayDecepticons;
-        arrayDecepticons = new Decepticon[2];
-        TransformShape shape1 = TransformShape.NOTEBOOK;
-        TransformShape shape2 = TransformShape.YACHT;
-        arrayDecepticons[0] = new Decepticon("Jack",shape1.name());
-        arrayDecepticons[1] = new Decepticon("Mary", shape2.name(),true);
+        ArrayList<Transformer> arrayTransformers = new ArrayList<>(4);
+        Transformer autobotFirst = new Autobot("Glory");
+        Transformer autobotSecond = new Autobot("Ben", false);
+        Transformer decepticonFirst = new Decepticon("Jack",TransformShape.NOTEBOOK);
+        Transformer decepticonSecond = new Decepticon("Mary", TransformShape.AIRPLANE,true);
+        arrayTransformers.add(autobotFirst);
+        arrayTransformers.add(autobotSecond);
+        arrayTransformers.add(decepticonFirst);
+        arrayTransformers.add(decepticonSecond);
 
-        System.out.println("Autobots: ");
-        for (int i = 0; i < 2; i++) {
-            System.out.println(i + 1 + ". " + arrayAutobots[i].getName());
-            arrayAutobots[i].showProperties();
-            arrayAutobots[i].run();
-            arrayAutobots[i].fire();
-            arrayAutobots[i].charge();
-            arrayAutobots[i].transformInto();
-        }
-
-        System.out.println("*************");
-
-        System.out.println("Decepticons: ");
-        for (int i = 0; i < 2; i++) {
-            System.out.println(i + 1 + ". " + arrayDecepticons[i].getName());
-            arrayDecepticons[i].showProperties();
-            arrayDecepticons[i].run();
-            arrayDecepticons[i].fire();
-            arrayDecepticons[i].charge();
-            arrayDecepticons[i].transformInto();
+        System.out.println("Transformers: ");
+        for (int i = 0; i < arrayTransformers.size(); i++) {
+            System.out.println(i + 1 + ". " + arrayTransformers.get(i).getName());
+            arrayTransformers.get(i).showProperties();
+            arrayTransformers.get(i).run();
+            arrayTransformers.get(i).fire();
+            arrayTransformers.get(i).charge();
         }
 
     }

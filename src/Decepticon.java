@@ -2,14 +2,14 @@ public class Decepticon extends Transformer implements Action {
     private static String TEAM_NAME;
     private static final String EYE_COLOR;
     boolean kindness = false;
-    String transformTo;
+    TransformShape transformTo;
 
     static {
         TEAM_NAME = "Decepticon";
         EYE_COLOR = "red";
     }
 
-    Decepticon(String name, String transformTo) {
+    Decepticon(String name, TransformShape transformTo) {
 
         super(name);
         String eyeColor = EYE_COLOR;
@@ -18,7 +18,7 @@ public class Decepticon extends Transformer implements Action {
         this.transformTo = transformTo;
     }
 
-    Decepticon(String name, String transformTo, boolean kindness) {
+    Decepticon(String name, TransformShape transformTo, boolean kindness) {
 
         super(name);
         this.kindness = kindness;
@@ -48,13 +48,4 @@ public class Decepticon extends Transformer implements Action {
         String kindnessMsg = (kindness) ? "I am kind." : "I am not kind.";
         System.out.println(kindnessMsg);
     }
-
-    @Override
-    public void run() { System.out.println(this.getName() + " is running"); }
-
-    @Override
-    public void fire() { System.out.println(this.getName() + " is shooting"); }
-
-    @Override
-    public void charge() { System.out.println(this.getName() + " is charging"); }
 }
